@@ -1,0 +1,38 @@
+<div>
+    <div class="row p-0 mt-1">
+        <div class="col-4 p-0 m-0">
+            <img src="https://via.placeholder.com/50" alt="" class="w-100">
+        </div>
+        <div class="col-7">
+            <h1>{{name}}</h1>
+            <small>{{desc}}</small><br><br>
+            <button routerLink="/book/{{id}}" class="btn btn-sm m-1 btn-success">Preview</button>
+            <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-sm m-1 btn-warning">Modify</button>
+            <button (click)="OnDelete()" class="btn btn-sm m-1 btn-danger">delete</button>
+        </div>
+    </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{name}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form (ngSubmit)="OnModify(f)" #f="ngForm">
+            <div class="modal-body">
+                <label for="name">New Name : </label>
+                <input type="text" name="name" class="form-control" id="name" value="{{name}}" required ngModel>
+                <label for="desc">New Synoptie : </label>
+                <textarea name="desc" id="desc" class="form-control" cols="30" rows="10" required ngModel>{{desc}}</textarea> 
+                
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-sm btn-primary">Save changes</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

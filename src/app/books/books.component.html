@@ -1,0 +1,5 @@
+<div class="row p-1 m-1 text-center justify-content-center">
+    <app-book class="col-lg-3 col-sm-12 m-1 bg-light rounded" *ngFor="let b of books"
+    [name]="b.name" [desc]="b.desc" [image]="b.image" [id]="b.id"
+    ></app-book>
+</div>
